@@ -2,8 +2,8 @@ import tkinter as tk
 from tkinter import filedialog, simpledialog, Toplevel, StringVar, OptionMenu, Button
 import pygame
 import sounddevice as sd, wave, os
-from styles import STYLES   # ✅ import styles
-from pynput import keyboard as kb   # ✅ global hotkeys
+from styles import STYLES   #  import styles
+from pynput import keyboard as kb   #  global hotkeys
 
 RECORDINGS_DIR = "recordings"
 
@@ -23,7 +23,7 @@ class SoundboardApp(tk.Tk):
         super().__init__()
         self.title("🎵 Soundboard with Recorder")
         self.geometry("450x500")
-        self.configure(**STYLES["window"])  # ✅ apply window style
+        self.configure(**STYLES["window"])  #  apply window style
         pygame.mixer.init()
 
         os.makedirs(RECORDINGS_DIR, exist_ok=True)
@@ -34,7 +34,7 @@ class SoundboardApp(tk.Tk):
         self.create_widgets()
         self.load_existing_sounds()
 
-        # ✅ Start global key listener
+        #  Start global key listener
         listener = kb.Listener(on_press=self.on_key_press)
         listener.start()
 
